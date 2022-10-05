@@ -10,11 +10,11 @@ import java.util.Objects;
 public class PlaylistTrackPK implements Serializable {
     @Column(name = "PlaylistId")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer playlistId;
     @Column(name = "TrackId")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer trackId;
 
     public Integer getPlaylistId() {

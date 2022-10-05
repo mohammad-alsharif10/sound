@@ -40,7 +40,7 @@ class TrackServiceTest {
     @Test
     void savePlayListTrack() {
         Playlist playlist = Playlist.builder().playlistId(1).build();
-        Track track = Track.builder().trackId(1).build();
+        Track track = Track.builder().trackId(145).build();
         PlaylistTrack playlistTrack = PlaylistTrack.builder().trackId(track.getTrackId()).playlistId(playlist.getPlaylistId()).playlistByPlaylistId(playlist).trackByTrackId(track).build();
         playlistTrack = playlistTrackRepository.save(playlistTrack);
         Assertions.assertNotNull(playlistTrack);
