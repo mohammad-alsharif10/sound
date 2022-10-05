@@ -13,9 +13,6 @@ public class Album {
     @Basic
     @Column(name = "Title")
     private String title;
-    @Basic
-    @Column(name = "ArtistId")
-    private Integer artistId;
     @ManyToOne
     @JoinColumn(name = "ArtistId", referencedColumnName = "ArtistId", nullable = false)
     private Artist artistByArtistId;
@@ -36,27 +33,6 @@ public class Album {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Integer getArtistId() {
-        return artistId;
-    }
-
-    public void setArtistId(Integer artistId) {
-        this.artistId = artistId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Album album = (Album) o;
-        return Objects.equals(albumId, album.albumId) && Objects.equals(title, album.title) && Objects.equals(artistId, album.artistId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(albumId, title, artistId);
     }
 
     public Artist getArtistByArtistId() {

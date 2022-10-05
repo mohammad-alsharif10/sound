@@ -1,2 +1,9 @@
-package com.tdd.sound.service;public class TrackService {
+package com.tdd.sound.service;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class TrackService {
 }

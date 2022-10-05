@@ -11,12 +11,6 @@ public class InvoiceLine {
     @Column(name = "InvoiceLineId")
     private Integer invoiceLineId;
     @Basic
-    @Column(name = "InvoiceId")
-    private Integer invoiceId;
-    @Basic
-    @Column(name = "TrackId")
-    private Integer trackId;
-    @Basic
     @Column(name = "UnitPrice")
     private BigDecimal unitPrice;
     @Basic
@@ -37,22 +31,6 @@ public class InvoiceLine {
         this.invoiceLineId = invoiceLineId;
     }
 
-    public Integer getInvoiceId() {
-        return invoiceId;
-    }
-
-    public void setInvoiceId(Integer invoiceId) {
-        this.invoiceId = invoiceId;
-    }
-
-    public Integer getTrackId() {
-        return trackId;
-    }
-
-    public void setTrackId(Integer trackId) {
-        this.trackId = trackId;
-    }
-
     public BigDecimal getUnitPrice() {
         return unitPrice;
     }
@@ -67,19 +45,6 @@ public class InvoiceLine {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        InvoiceLine that = (InvoiceLine) o;
-        return Objects.equals(invoiceLineId, that.invoiceLineId) && Objects.equals(invoiceId, that.invoiceId) && Objects.equals(trackId, that.trackId) && Objects.equals(unitPrice, that.unitPrice) && Objects.equals(quantity, that.quantity);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(invoiceLineId, invoiceId, trackId, unitPrice, quantity);
     }
 
     public Invoice getInvoiceByInvoiceId() {

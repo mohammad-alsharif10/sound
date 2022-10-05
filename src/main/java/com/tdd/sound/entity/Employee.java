@@ -21,9 +21,6 @@ public class Employee {
     @Column(name = "Title")
     private String title;
     @Basic
-    @Column(name = "ReportsTo")
-    private Integer reportsTo;
-    @Basic
     @Column(name = "BirthDate")
     private Timestamp birthDate;
     @Basic
@@ -93,13 +90,6 @@ public class Employee {
         this.title = title;
     }
 
-    public Integer getReportsTo() {
-        return reportsTo;
-    }
-
-    public void setReportsTo(Integer reportsTo) {
-        this.reportsTo = reportsTo;
-    }
 
     public Timestamp getBirthDate() {
         return birthDate;
@@ -181,18 +171,6 @@ public class Employee {
         this.email = email;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(employeeId, employee.employeeId) && Objects.equals(lastName, employee.lastName) && Objects.equals(firstName, employee.firstName) && Objects.equals(title, employee.title) && Objects.equals(reportsTo, employee.reportsTo) && Objects.equals(birthDate, employee.birthDate) && Objects.equals(hireDate, employee.hireDate) && Objects.equals(address, employee.address) && Objects.equals(city, employee.city) && Objects.equals(state, employee.state) && Objects.equals(country, employee.country) && Objects.equals(postalCode, employee.postalCode) && Objects.equals(phone, employee.phone) && Objects.equals(fax, employee.fax) && Objects.equals(email, employee.email);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(employeeId, lastName, firstName, title, reportsTo, birthDate, hireDate, address, city, state, country, postalCode, phone, fax, email);
-    }
 
     public Collection<Customer> getCustomersByEmployeeId() {
         return customersByEmployeeId;

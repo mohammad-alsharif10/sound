@@ -12,9 +12,7 @@ public class Invoice {
     @Id
     @Column(name = "InvoiceId")
     private Integer invoiceId;
-    @Basic
-    @Column(name = "CustomerId")
-    private Integer customerId;
+
     @Basic
     @Column(name = "InvoiceDate")
     private Timestamp invoiceDate;
@@ -48,14 +46,6 @@ public class Invoice {
 
     public void setInvoiceId(Integer invoiceId) {
         this.invoiceId = invoiceId;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
     }
 
     public Timestamp getInvoiceDate() {
@@ -114,18 +104,6 @@ public class Invoice {
         this.total = total;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Invoice invoice = (Invoice) o;
-        return Objects.equals(invoiceId, invoice.invoiceId) && Objects.equals(customerId, invoice.customerId) && Objects.equals(invoiceDate, invoice.invoiceDate) && Objects.equals(billingAddress, invoice.billingAddress) && Objects.equals(billingCity, invoice.billingCity) && Objects.equals(billingState, invoice.billingState) && Objects.equals(billingCountry, invoice.billingCountry) && Objects.equals(billingPostalCode, invoice.billingPostalCode) && Objects.equals(total, invoice.total);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(invoiceId, customerId, invoiceDate, billingAddress, billingCity, billingState, billingCountry, billingPostalCode, total);
-    }
 
     public Customer getCustomerByCustomerId() {
         return customerByCustomerId;

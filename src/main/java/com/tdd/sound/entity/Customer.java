@@ -43,9 +43,6 @@ public class Customer {
     @Basic
     @Column(name = "Email")
     private String email;
-    @Basic
-    @Column(name = "SupportRepId")
-    private Integer supportRepId;
     @ManyToOne
     @JoinColumn(name = "SupportRepId", referencedColumnName = "EmployeeId")
     private Employee employeeBySupportRepId;
@@ -148,26 +145,7 @@ public class Customer {
         this.email = email;
     }
 
-    public Integer getSupportRepId() {
-        return supportRepId;
-    }
 
-    public void setSupportRepId(Integer supportRepId) {
-        this.supportRepId = supportRepId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
-        return Objects.equals(customerId, customer.customerId) && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(company, customer.company) && Objects.equals(address, customer.address) && Objects.equals(city, customer.city) && Objects.equals(state, customer.state) && Objects.equals(country, customer.country) && Objects.equals(postalCode, customer.postalCode) && Objects.equals(phone, customer.phone) && Objects.equals(fax, customer.fax) && Objects.equals(email, customer.email) && Objects.equals(supportRepId, customer.supportRepId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(customerId, firstName, lastName, company, address, city, state, country, postalCode, phone, fax, email, supportRepId);
-    }
 
     public Employee getEmployeeBySupportRepId() {
         return employeeBySupportRepId;
