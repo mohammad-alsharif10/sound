@@ -11,10 +11,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @SpringBootTest
+@Transactional
 class TrackServiceTest {
 
     @Autowired
@@ -40,7 +42,7 @@ class TrackServiceTest {
     @Test
     void savePlayListTrack() {
         Playlist playlist = Playlist.builder().playlistId(1).build();
-        Track track = Track.builder().trackId(145).build();
+        Track track = Track.builder().trackId(3064).build();
         PlaylistTrack playlistTrack = PlaylistTrack.builder().trackId(track.getTrackId()).playlistId(playlist.getPlaylistId()).playlistByPlaylistId(playlist).trackByTrackId(track).build();
         playlistTrack = playlistTrackRepository.save(playlistTrack);
         Assertions.assertNotNull(playlistTrack);
