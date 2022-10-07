@@ -1,10 +1,17 @@
 package com.tdd.sound.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Builder
 public class Album {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -18,36 +25,4 @@ public class Album {
     private Artist artistByArtistId;
     @OneToMany(mappedBy = "albumByAlbumId")
     private Collection<Track> tracksByAlbumId;
-
-    public Integer getAlbumId() {
-        return albumId;
-    }
-
-    public void setAlbumId(Integer albumId) {
-        this.albumId = albumId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Artist getArtistByArtistId() {
-        return artistByArtistId;
-    }
-
-    public void setArtistByArtistId(Artist artistByArtistId) {
-        this.artistByArtistId = artistByArtistId;
-    }
-
-    public Collection<Track> getTracksByAlbumId() {
-        return tracksByAlbumId;
-    }
-
-    public void setTracksByAlbumId(Collection<Track> tracksByAlbumId) {
-        this.tracksByAlbumId = tracksByAlbumId;
-    }
 }

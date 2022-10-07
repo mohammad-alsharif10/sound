@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Objects;
 
 @Entity
 @AllArgsConstructor
@@ -13,13 +12,16 @@ import java.util.Objects;
 @Setter
 @Builder
 public class Playlist {
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "PlaylistId")
     private Integer playlistId;
+
     @Basic
     @Column(name = "Name")
     private String name;
+
     @OneToMany(mappedBy = "playlistByPlaylistId")
     private Collection<PlaylistTrack> playlistTracksByPlaylistId;
 
